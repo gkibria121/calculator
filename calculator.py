@@ -100,7 +100,7 @@ calculator = Calculator()
 ##print(calculator.evaluate('1+1+tan(90)+1'))
 ##print(calculator.evaluate('sqrt(/1)'))
 ##print(calculator.evaluate('ln(e)'))
-print(calculator.evaluate('_abc'))
+print(calculator.evaluate('1.23.45+12..22'))
 
 
 

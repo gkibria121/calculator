@@ -11,6 +11,8 @@ from validations.keyword_check import KeywordChecker
 from validations.completion_check import CompletionErrorChecker
 from validations.key_check import UnsupportedKeyCheck
 from validations.constant_check import ConstantChecker
+from validations.number_check import NumberChecker
+
 class Validation(IOperation):
 
     def __init__(self):
@@ -25,6 +27,7 @@ class Validation(IOperation):
         self.completion_check = CompletionErrorChecker()
         self.key_check = UnsupportedKeyCheck()
         self.constant_check = ConstantChecker()
+        self.num_check = NumberChecker()
 
 
 
@@ -35,7 +38,8 @@ class Validation(IOperation):
         self.keyword_check.set_successor(self.completion_check)
         self.completion_check.set_successor(self.key_check)
         self.key_check.set_successor(self.constant_check)
-        self.constant_check.set_successor(self.division_check)
+        self.constant_check.set_successor(self.num_check)
+        self.num_check.set_successor(self.division_check)
         self.division_check.set_successor(self.default)
 
 
@@ -77,6 +81,7 @@ class Validation(IOperation):
         self.completion_check.set_error_handler(self.error_handler)
         self.key_check.set_error_handler(self.error_handler)
         self.constant_check.set_error_handler(self.error_handler)
+        self.num_check.set_error_handler(self.error_handler)
 
     def set_recorder(self,recorder):
 

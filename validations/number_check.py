@@ -1,17 +1,20 @@
 from controller.base import IValidation
 import regex
 
-class UnsupportedKeyCheck(IValidation):
+class NumberChecker(IValidation):
 
 
     def check_error(self,expression):
 
 
-        incomplete_pattern = r'[@#$&_|~`"]+(?:\b|$)'
-        matches = regex.findall(incomplete_pattern,expression)
-        if matches:
-            for match in matches:
-                self.error_handler.set_error('Syntax Error: Unsupported Key '+match)
+        invalid_num = r'[\d\.]+'
+        matches = regex.findall(invalid_num,expression)
+
+        for match in matches:
+            if match.count('.')>1:
+                self.error_handler.set_error(f"Syntax Error: Invalid number format {match}")
+
+
 
         return self.successor.check_error(expression)
 

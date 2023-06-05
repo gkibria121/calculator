@@ -840,13 +840,13 @@ class CalculatorTestCase(unittest.TestCase):
         self.assertEqual(result, ['Syntax Error: Inappropriate Function Calling asin'])
 
         result = self.calculator.evaluate('abc')
-        self.assertEqual(result, ['Syntax Error : Unsupported Input'])
+        self.assertEqual(result, ['Syntax Error : Unsupported Input abc'])
 
         result = self.calculator.evaluate('12+28+68+abc')
-        self.assertEqual(result, ['Syntax Error : Unsupported Input'])
+        self.assertEqual(result, ['Syntax Error : Unsupported Input abc'])
 
         result = self.calculator.evaluate('12+28+68+(abc)')
-        self.assertEqual(result, ['Syntax Error : Unsupported Input'])
+        self.assertEqual(result, ['Syntax Error : Unsupported Input abc'])
 
         result = self.calculator.evaluate('12+21+a')
         self.assertEqual(result, ['Syntax Error: Invalid Input a'])

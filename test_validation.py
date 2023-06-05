@@ -29,7 +29,7 @@ class ValidationTestCase(unittest.TestCase):
 
 
         result = self.validation.evaluate('@#$&_|+@#')
-        self.assertEqual(result, ['Syntax Error: Unsupported Key @#$&_|', 'Syntax Error: Unsupported Key @#'])
+        self.assertEqual(result,['Syntax Error: Unsupported Key @#$&_', 'Syntax Error: Unsupported Key @#'])
 
     def test_type_error(self):
 
@@ -199,7 +199,7 @@ class ValidationTestCase(unittest.TestCase):
 
     def test_invalid_variable(self):
         result = self.validation.evaluate('$var+23+333')
-        self.assertEqual(result, ['Syntax Error: Unsupported Input $var+23'])
+        self.assertEqual(result, ['Syntax Error: Unsupported Key $'])
 
         result = self.validation.evaluate('_abc')
         self.assertEqual(result, ['Syntax Error : Unsupported Input _abc'])
