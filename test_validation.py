@@ -204,6 +204,9 @@ class ValidationTestCase(unittest.TestCase):
         result = self.validation.evaluate('_abc')
         self.assertEqual(result, ['Syntax Error : Unsupported Input _abc'])
 
+        result = self.validation.evaluate('var+123')
+        self.assertEqual(result,['Syntax Error : Unsupported Input var+123'])
+
 
 
 

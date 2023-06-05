@@ -98,7 +98,7 @@ Here's an example:
 
 ```python
 result = calculator.evaluate('sin(45) + cos(30)')
-print(result)  # Output: 1.7071067811865475
+print(result)  # Output: 1.573132185
 ```
 
 ### Inverse Trigonometric Functions

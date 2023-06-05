@@ -87,9 +87,9 @@ class Calculator:
 
 
 
-#calculator = Calculator()
-#expression = ''
-#print(calculator.evaluate(expression))
+calculator = Calculator()
+expression = '//'
+print(calculator.evaluate(expression))
 
 
 
