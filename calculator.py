@@ -88,7 +88,7 @@ class Calculator:
 
 
 calculator = Calculator()
-expression = '/2*3'
+expression = '11258/44********'
 print(calculator.evaluate(expression))
 
 
