@@ -87,20 +87,9 @@ class Calculator:
 
 
 
-calculator = Calculator()
-
-##print(calculator.evaluate('(5 + 2) / ((3 - 1) * (4 - 4))'))
-##print(calculator.evaluate('sin(pi/2 radians)'))
-##print(calculator.evaluate('1+sin(90)+cos(0)+(2*pi)'))
-##print(calculator.evaluate('pi+e+200-((12+3)/3)+(3*2*3*7)-2+1+(2*12)-1+(7*5)+sin(90)+cos(180)'))
-##print(calculator.evaluate('pi+sin(90)+cos(90)+sin(1+2)+sin(1+2+(3+4))+cos(sin(90)+cos(-90))'))
-##calculator.recorder.get_record('pi+sin(90)+cos(90)+sin(1+2)+sin(1+2+(3+4))+cos(sin(90)+cos(-90))')
-##calculator.recorder.get_record('1+sin(90)+cos(0)+(2*pi)')
-##print(calculator.evaluate('1+1+5/(1-1)+1'))
-##print(calculator.evaluate('1+1+tan(90)+1'))
-##print(calculator.evaluate('sqrt(/1)'))
-##print(calculator.evaluate('ln(e)'))
-print(calculator.evaluate('1.23.45+12..22'))
+#calculator = Calculator()
+#expression = ''
+#print(calculator.evaluate(expression))
 
 
 
