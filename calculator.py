@@ -87,9 +87,9 @@ class Calculator:
 
 
 
-calculator = Calculator()
-expression = 'sqrt(16) + abs(-5) * exp(2)'
-print(calculator.evaluate(expression))
+##calculator = Calculator()
+##expression = ''
+##print(calculator.evaluate(expression))
 
 
 
