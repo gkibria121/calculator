@@ -134,7 +134,7 @@ Here's an example that includes the usage of these additional functions:
 
 ```python
 result = calculator.evaluate('sqrt(16) + abs(-5) * exp(2)')
-print(result)  # Output: 33.38905609893065
+print(result)  # Output: 40.945280495
 ```
 
 ## Validations

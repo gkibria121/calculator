@@ -88,7 +88,7 @@ class Calculator:
 
 
 calculator = Calculator()
-expression = '//'
+expression = 'sqrt(16) + abs(-5) * exp(2)'
 print(calculator.evaluate(expression))
 
 
