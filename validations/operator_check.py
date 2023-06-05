@@ -49,6 +49,14 @@ class OperatorErrorChecker(IValidation):
             for match in matches:
                 self.error_handler.set_error('Syntax Error : Invalid Operator '+match)
 
+        operators_pattern = r'^[/^/*]'
+
+        matches = regex.findall(operators_pattern,expression)
+
+        if matches:
+            for match in matches:
+                self.error_handler.set_error('Syntax Error : Invalid Operator at beganing '+match)
+
 
 
 

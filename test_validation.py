@@ -207,6 +207,9 @@ class ValidationTestCase(unittest.TestCase):
         result = self.validation.evaluate('var+123')
         self.assertEqual(result,['Syntax Error : Unsupported Input var+123'])
 
+        result = self.validation.evaluate('/2')
+        self.assertEqual(result,['Syntax Error : Invalid Operator at beganing /'])
+
 
 
 
