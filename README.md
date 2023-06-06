@@ -64,6 +64,8 @@ The calculator supports the following arithmetic operations:
 - Subtraction: `-`
 - Multiplication: `*`
 - Division: `/`
+- Power: `^`
+- Module: `%`
 
 ### Unary Operators
 
