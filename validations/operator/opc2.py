@@ -8,7 +8,7 @@ class Op2(IValidation):
 
 
 
-        operators_pattern = r'[\d\d.]+(?:[\s)]+[\d\.])+'
+        operators_pattern = r'[\d\.]+(?:[\s)]+[\d\.]+)+'
         matches = regex.findall(operators_pattern,expression)
 
         if  matches:
