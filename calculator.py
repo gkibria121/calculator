@@ -86,9 +86,9 @@ class Calculator:
         return self.expression
 
 
-#calculator = Calculator()
-#expression = ''
-#print(calculator.evaluate(expression))
+calculator = Calculator()
+expression = '1 2   1 1 1 1    1'
+print(calculator.evaluate(expression))
 
 
 

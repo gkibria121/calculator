@@ -5,8 +5,6 @@ from validations.operator.opc2 import Op2
 from validations.operator.opc3 import Op3
 from validations.operator.opc4 import Op4
 from validations.operator.opc5 import Op5
-from validations.operator.opc6 import Op6
-
 from validations.default import Default
 class OperatorErrorChecker(IValidation):
 
@@ -16,7 +14,6 @@ class OperatorErrorChecker(IValidation):
         self.opc3 = Op3()
         self.opc4 = Op4()
         self.opc5 = Op5()
-        self.opc6 = Op6()
         self.default = Default()
 
 
@@ -24,8 +21,7 @@ class OperatorErrorChecker(IValidation):
         self.opc2.set_successor(self.opc3)
         self.opc3.set_successor(self.opc4)
         self.opc4.set_successor(self.opc5)
-        self.opc5.set_successor(self.opc6)
-        self.opc6.set_successor(self.default)
+        self.opc5.set_successor(self.default)
 
 
 
@@ -49,4 +45,3 @@ class OperatorErrorChecker(IValidation):
         self.opc3.set_error_handler(self.error_handler)
         self.opc4.set_error_handler(self.error_handler)
         self.opc5.set_error_handler(self.error_handler)
-        self.opc6.set_error_handler(self.error_handler)

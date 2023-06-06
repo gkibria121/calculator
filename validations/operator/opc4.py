@@ -7,7 +7,7 @@ class Op4(IValidation):
     def check_error(self,expression):
 
 
-
+        ## multiple invalid operators at sametime
         operators_pattern = r'([/]{2,}|[*]{2,}|[\^]{2,})'
 
         matches = regex.findall(operators_pattern,expression)

@@ -7,8 +7,8 @@ class Op5(IValidation):
     def check_error(self,expression):
 
 
-
-        operators_pattern = r'^[/^/*]'
+        ## Invalid Operator at beganing
+        operators_pattern = r'^[/^/*%]'
 
         matches = regex.findall(operators_pattern,expression)
 
