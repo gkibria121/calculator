@@ -92,9 +92,9 @@ class Calculator:
         return self.expression
 
 
-calculator = Calculator()
-expression = 'sqrt(/1)'
-print(calculator.evaluate(expression))
+##calculator = Calculator()
+##expression = 'sqrt(/1)'
+##print(calculator.evaluate(expression))
 
 
 
