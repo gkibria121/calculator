@@ -11,6 +11,8 @@ from operations.substraction import Substraction
 from operations.multiplication import Multiplication
 from operations.division import Division
 from operations.power import Power
+from operations.mod import Mod
+
 
 
 class Calculator:
@@ -23,6 +25,7 @@ class Calculator:
         self.default  =Default()
         self.division = Division()
         self.power = Power()
+        self.mod = Mod()
         self.multiplication = Multiplication()
         self.substraction = Substraction()
         self.addition = Addition()
@@ -35,7 +38,8 @@ class Calculator:
 
         ## set successor
         self.power.set_successor (self.default)
-        self.division.set_successor (self.power)
+        self.mod.set_successor (self.power)
+        self.division.set_successor (self.mod)
         self.multiplication.set_successor (self.division)
         self.substraction.set_successor ( self.multiplication)
         self.addition.set_successor ( self.substraction)
@@ -57,6 +61,7 @@ class Calculator:
         self.power.set_error_handler(self.error_handle)
         self.function.set_error_handler(self.error_handle)
         self.process.set_error_handler(self.error_handle)
+        self.mod.set_error_handler(self.error_handle)
 
         ## set Recorder
 
@@ -69,6 +74,7 @@ class Calculator:
         self.validation.set_recorder (self.recorder)
         self.default.set_recorder(self.recorder)
         self.power.set_recorder(self.recorder)
+        self.mod.set_recorder(self.recorder)
         self.function.set_recorder(self.recorder)
         self.process.set_recorder(self.recorder)
 
@@ -87,7 +93,7 @@ class Calculator:
 
 
 calculator = Calculator()
-expression = '1 2   1 1 1 1    1'
+expression = 'sqrt(/1)'
 print(calculator.evaluate(expression))
 
 

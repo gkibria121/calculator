@@ -15,6 +15,13 @@ class Op1(IValidation):
             for match in matches:
                 self.error_handler.set_error('Syntax Error : Invalid Operators '+match[0]+match[1])
 
+        operators_pattern = r'(\([|^*/%]+)'
+        matches = regex.findall(operators_pattern,expression)
+
+        if  matches:
+            for match in matches:
+                self.error_handler.set_error('Syntax Error : Invalid Operators '+match)
+
 
         return self.successor.check_error(expression)
 
