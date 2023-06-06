@@ -1,64 +1,37 @@
 from controller.base import IValidation
 import regex
+from validations.operator.opc1 import Op1
+from validations.operator.opc2 import Op2
+from validations.operator.opc3 import Op3
+from validations.operator.opc4 import Op4
+from validations.operator.opc5 import Op5
+from validations.operator.opc6 import Op6
 
+from validations.default import Default
 class OperatorErrorChecker(IValidation):
+
+    def __init__(self):
+        self.opc1 = Op1()
+        self.opc2 = Op2()
+        self.opc3 = Op3()
+        self.opc4 = Op4()
+        self.opc5 = Op5()
+        self.opc6 = Op6()
+        self.default = Default()
+
+
+        self.opc1.set_successor(self.opc2)
+        self.opc2.set_successor(self.opc3)
+        self.opc3.set_successor(self.opc4)
+        self.opc4.set_successor(self.opc5)
+        self.opc5.set_successor(self.opc6)
+        self.opc6.set_successor(self.default)
+
 
 
     def check_error(self,expression):
 
-
-
-        operators_pattern = r'([\d\.]+)((?:[(+-][*^/])|(?:[+-][*^/)]))'
-        matches = regex.findall(operators_pattern,expression)
-
-        if  matches:
-            for match in matches:
-                self.error_handler.set_error('Syntax Error : Invalid Operators '+match[0]+match[1])
-
-
-        operators_pattern = r'[\d\d.]+(?:[\s)]+[\d\.])+'
-        matches = regex.findall(operators_pattern,expression)
-
-        if  matches:
-            for match in matches:
-                self.error_handler.set_error('Syntax Error : Invalid Operators '+match.replace(' ','?'))
-
-        operators_pattern = '(log)?(\d+(?:\.\d+)?)\((\d+(?:\.\d+)?)'
-
-        matches = regex.findall(operators_pattern,expression)
-
-        if matches:
-            for match in matches:
-                if match[0] == 'log':
-                    pass
-                else:
-                    self.error_handler.set_error('Syntax Error : Missing Operator '+match[1]+'?('+match[2])
-        operators_pattern = r'(\([*\/^])'
-
-        matches = regex.findall(operators_pattern,expression)
-
-        if matches:
-            for match in matches:
-                self.error_handler.set_error('Syntax Error : Invalid Operator '+match)
-
-        operators_pattern = r'([/]{2,}|[*]{2,}|[\^]{2,})'
-
-        matches = regex.findall(operators_pattern,expression)
-
-        if matches:
-            for match in matches:
-                self.error_handler.set_error('Syntax Error : Invalid Operator '+match)
-
-        operators_pattern = r'^[/^/*]'
-
-        matches = regex.findall(operators_pattern,expression)
-
-        if matches:
-            for match in matches:
-                self.error_handler.set_error('Syntax Error : Invalid Operator at beganing '+match)
-
-
-
+        self.opc1.check_error(expression)
 
         return self.successor.check_error(expression)
 
@@ -70,3 +43,10 @@ class OperatorErrorChecker(IValidation):
 
     def set_error_handler(self,handler):
         self.error_handler = handler
+
+        self.opc1.set_error_handler(self.error_handler)
+        self.opc2.set_error_handler(self.error_handler)
+        self.opc3.set_error_handler(self.error_handler)
+        self.opc4.set_error_handler(self.error_handler)
+        self.opc5.set_error_handler(self.error_handler)
+        self.opc6.set_error_handler(self.error_handler)
