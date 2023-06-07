@@ -778,10 +778,10 @@ class CalculatorTestCase(unittest.TestCase):
         self.assertEqual(result, ["Math Error: Square Root Of A Negative Number"])
 
         result = self.calculator.evaluate('sqrt(/1)')
-        self.assertEqual(result, ['Syntax Error : Invalid Operator (/'])
+        self.assertEqual(result, ['Syntax Error : Invalid Operators (/'])
 
         result = self.calculator.evaluate('sin(/1)')
-        self.assertEqual(result, ['Syntax Error : Invalid Operator (/'])
+        self.assertEqual(result, ['Syntax Error : Invalid Operators (/'])
 
         result = self.calculator.evaluate('sin(0)^0')
         self.assertEqual(result, 1)
