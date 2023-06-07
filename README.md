@@ -11,7 +11,11 @@ This is a advanced calculator program that can evaluate arithmetic expressions a
 
 ## Getting Started
 
-//
+Install by command
+```
+pip install sk_calculator
+```
+
 
 ## Usage
 
@@ -20,7 +24,7 @@ To evaluate an arithmetic expression, create an instance of the `Calculator` cla
 Here's an example:
 
 ```python
-from calculator import Calculator
+from sk_calculator import Calculator
 
 # Create an instance of the Calculator class
 calculator = Calculator()

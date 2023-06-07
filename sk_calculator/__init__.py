@@ -86,10 +86,6 @@ class Calculator:
         self.recorder.set_expression(expression)
         self.expression =  self.validation.evaluate(expression)
         self.recorder.record(expression,self.expression,self.__class__.__name__)
-
-
-
         return self.expression
-
 
 

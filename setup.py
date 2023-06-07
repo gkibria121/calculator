@@ -1,24 +1,28 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="sk-calculator",
-    version="1.0.0",
-    author="Ahmed Kibria",
-    author_email="gkibria121@email.com",
-    description="A advanced calculator program",
+    name='sk_calculator',
+    version='1.0.1',
+    description='A simple calculator program',
+    author='gkibria',
     long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="https://github.com/gkibria121/calculator",
+    long_description_content_type="text/markdown",  # Specify the content type as Markdown
+    author_email='gkibria121@gmail.com',
+    packages=find_packages(),
     install_requires=['regex'],
-    packages=["calculator"],
-    keywords=['python', 'calculator', 'python calculator', 'gk calculator','advanced calculator'],
+    python_requires='>=3.6',
+    entry_points={
+        'console_scripts': [
+            'calculator=calculator.main:main',
+        ],
+    },
+    keywords=['python', 'calculator', 'python calculator', 'gk calculator', 'advanced calculator'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.6",
 )
