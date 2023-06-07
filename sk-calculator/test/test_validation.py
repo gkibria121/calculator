@@ -1,7 +1,7 @@
 import unittest
-from calculator.controller.validation import Validation
-from calculator.controller.default import Default
-from calculator.controller.error import ErrorHandle
+from ..controller.validation import Validation
+from ..calculator.controller.default import Default
+from ..calculator.controller.error import ErrorHandle
 class ValidationTestCase(unittest.TestCase):
 
 
