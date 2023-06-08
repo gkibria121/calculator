@@ -1,6 +1,6 @@
-from calculator.calculator import Calculator
+from sk_calculator import Calculator
 
-class Variable:
+class VariableHandler:
 
 
     print("variable")
