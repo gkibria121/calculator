@@ -9,7 +9,6 @@ class VariableHandler:
         self.variable_expression_list=[]
 
 
-
     def declare(self,declarations):
 
 
@@ -28,7 +27,6 @@ class VariableHandler:
 
                 self.declaration_list[variable] = expression
 
-        print(self.declaration_list)
 
     def get_constant_expression_list (self):
 
@@ -39,7 +37,6 @@ class VariableHandler:
 
         for variable,expressin in self.constant_expression_list.items():
             self.declaration_list[variable] = expressin
-        print(self.constant_expression_list)
 
     def get_variable_expression_list(self):
 
@@ -47,7 +44,6 @@ class VariableHandler:
         for variable,expressin in self.declaration_list.items():
             if '$' in expressin:
                 self.variable_expression_list.append((variable,expressin))
-        print(self.variable_expression_list)
 
     def solve_variable_expression_list(self):
         temp = {}
@@ -63,45 +59,22 @@ class VariableHandler:
                 self.constant_expression_list[variable]=str(self.calculator.evaluate(expression))
                 for variable_e in self.variable_expression_list:
                     if variable_e[0] == variable:
-                        variable_e[1] =str(self.calculator.evaluate(expression))
+                       self.variable_expression_list.remove(variable_e)
 
                 self.declaration_list[variable]=str(self.calculator.evaluate(expression))
             else:
                 self.variable_expression_list.append((variable,expression))
                 self.declaration_list[variable]=expression
-        print(self.variable_expression_list)
+
         for key,value in  self.variable_expression_list:
             if '$' in value:
                 self.solve_variable_expression_list()
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     def get_values(self):
         self.get_constant_expression_list()
         self.get_variable_expression_list()
         self.solve_variable_expression_list()
-        temp_list = []
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -124,7 +97,7 @@ variable = VariableHandler()
 variable.declare('$x=1+2;$y=2+1; $var =12+223+(222+2); $var2 =$x+$y; $xy = ( $var2 + $x +$y );$yx = $xy+$var2 ')
 
 variable.get_values()
-variable.generate_report('Rohim has $x taka and Korim has $y taka. They have $xy taka. The can get $var taka. They need $var2 taka')
+variable.generate_report('Rohim has "$x" taka and Korim has $y taka. They have $xy taka. The can get $var taka. They need $var2 taka and $yx')
 
 
 
