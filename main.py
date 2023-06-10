@@ -6,7 +6,7 @@ class VariableHandler:
 
         self.calculator = Calculator()
         self.constant_expression_list ={}
-        self.variable_expression_list={}
+        self.variable_expression_list=[]
 
 
 
@@ -46,12 +46,12 @@ class VariableHandler:
 
         for variable,expressin in self.declaration_list.items():
             if '$' in expressin:
-                self.variable_expression_list[variable] =expressin
+                self.variable_expression_list.append((variable,expressin))
         print(self.variable_expression_list)
 
     def solve_variable_expression_list(self):
         temp = {}
-        for variable,expressin in self.variable_expression_list.items():
+        for variable,expressin in self.variable_expression_list:
             temp_expression =expressin
             for key,value in self.constant_expression_list.items():
                 pattern = regex.escape(key)+r'(\s|\b)'
@@ -60,15 +60,22 @@ class VariableHandler:
 
         for variable,expression in temp.items():
             if '$' not in expression:
+                self.constant_expression_list[variable]=str(self.calculator.evaluate(expression))
+                for variable_e in self.variable_expression_list:
+                    if variable_e[0] == variable:
+                        variable_e[1] =str(self.calculator.evaluate(expression))
 
-                self.variable_expression_list[variable]=str(self.calculator.evaluate(expression))
                 self.declaration_list[variable]=str(self.calculator.evaluate(expression))
             else:
-                self.variable_expression_list[variable]=expression
+                self.variable_expression_list.append((variable,expression))
                 self.declaration_list[variable]=expression
-
-
         print(self.variable_expression_list)
+        for key,value in  self.variable_expression_list:
+            if '$' in value:
+                self.solve_variable_expression_list()
+
+
+
 
 
 
