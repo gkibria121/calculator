@@ -5,13 +5,13 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='sk_calculator',
-    version='1.0.1',
+    version='1.0.5',
     description='A simple calculator program',
     author='gkibria',
     long_description=long_description,
     long_description_content_type="text/markdown",  # Specify the content type as Markdown
     author_email='gkibria121@gmail.com',
-    packages=find_packages(),
+    package_dir={"": "sk_calculator"},
     install_requires=['regex'],
     python_requires='>=3.6',
     entry_points={
