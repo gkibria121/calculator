@@ -86,7 +86,8 @@ class Calculator:
         self.recorder.set_expression(expression)
         self.expression =  self.validation.evaluate(expression)
         self.recorder.record(expression,self.expression,self.__class__.__name__)
-        return self.expression
+        result = int(self.expression) if str(self.expression).endswith('.0') else self.expression
+        return result
 
 
 __all__ = ['controller', 'function','operations','process','validations']
